@@ -1,0 +1,21 @@
+{
+  "name": "garden-users",
+  "version": "1.0.0",
+  "description": "Users API for the Garden App",
+  "main": "app.mjs",
+  "repository": "https://github.com/awslabs/aws-sam-cli/tree/develop/samcli/local/init/templates/cookiecutter-aws-sam-hello-nodejs",
+  "author": "SAM CLI",
+  "license": "MIT",
+  "dependencies": {
+    "axios": ">=0.21.1",
+    "dotenv": "^16.3.1",
+    "mongoose": "^7.5.1"
+  },
+  "scripts": {
+    "test": "mocha tests/unit/"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.1.0"
+  }
+}
