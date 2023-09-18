@@ -36,9 +36,6 @@ Resources:
       Runtime: nodejs18.x
       Architectures:
         - x86_64
-      Environment:
-        Variables:
-          MONGO_URI: 'mongodb+srv://gardenAdmin:KrXbag6JD97uwkgh@garden.6e16nvy.mongodb.net/?retryWrites=true&w=majority'
       Events:
         Users:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
