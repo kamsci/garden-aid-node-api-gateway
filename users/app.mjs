@@ -43,15 +43,14 @@ export const lambdaHandler = async (event, context) => {
         } else if (pathParts.length === 2 && pathParts[1] === 'find' && httpMethod === 'GET') {
             // Find a user by email
             return await findUser(User, event.queryStringParameters?.email);
-        } else {
-            // Unknown /user path
-            return {
-                statusCode: 404,
-                body: {
-                    message: 'Unknown path',
-                    path: pathParts,
-                    httpMethod,
-                }
+        }
+        // Unknown /user path plus method
+        return {
+            statusCode: 404,
+            body: {
+                message: 'Unknown path',
+                path: pathParts,
+                httpMethod,
             }
         }
     } catch (err) {
@@ -60,6 +59,7 @@ export const lambdaHandler = async (event, context) => {
             'statusCode': 500,
             'body': JSON.stringify({
                 message: err?.message || err.toString(),
+                readyState,
             }),
         };
     }
