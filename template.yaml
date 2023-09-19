@@ -20,7 +20,7 @@ Resources:
       # MemorySize: 256
       Timeout: 10
       # Policies: AWSLambdaBasicExecutionRole
-  MyApi:
+  UsersApi:
     Type: AWS::Serverless::Api
     Properties:
       StageName: prod
