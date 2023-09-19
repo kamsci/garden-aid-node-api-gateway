@@ -42,6 +42,11 @@ Resources:
           Properties:
             Path: /users
             Method: get
+        UsersFind:
+          Type: Api
+          Properties:
+            Path: /users/find
+            Method: get
 
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
