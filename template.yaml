@@ -11,6 +11,30 @@ Globals:
     Timeout: 3
 
 Resources:
+  Auth0CustomAuthorizerFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: app.lambdaHandler
+      Runtime: nodejs18.x
+      CodeUri: auth0Authorizer/
+      # MemorySize: 256
+      Timeout: 10
+      # Policies: AWSLambdaBasicExecutionRole
+  MyApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: prod
+      Auth:
+        DefaultAuthorizer: Auth0Authorizer
+        Authorizers:
+          Auth0Authorizer:
+            FunctionArn:
+              Fn::GetAtt:
+              - Auth0CustomAuthorizerFunction
+              - Arn
+            Identity:
+              Header: Authorization
+              ReauthorizeEvery: 300
   QuotesScraperFunction:
     Type: AWS::Serverless::Function
     Properties:
